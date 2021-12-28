@@ -1,9 +1,10 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <!-- <router-link to="/">Home</router-link> |
+    <router-link to="/analyze">Analyze</router-link> |
+    <router-link to="/history">History</router-link> -->
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style>
@@ -15,9 +16,9 @@
   color: #2c3e50;
 }
 
-#nav {
+/* #nav {
   padding: 30px;
-}
+} */
 
 #nav a {
   font-weight: bold;
