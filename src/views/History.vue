@@ -24,62 +24,80 @@
           </ul>
         </div>
       </nav>
-      <input v-model="message" />
-      <input v-model="message" />
-      <button id="login" style="border-radius: 10px; font-size: 20px">
-        Login
-      </button>
-      New member? Join now
+
       <p
         style="
           color: white;
-          font-size: 40px;
+          font-size: 45px;
           font-style: italic;
-          text-align: left;
+          text-align: right;
+          margin-right:5%;
+          margin-top:1%;
+          margin-bottom:0%;
+        
         "
       >
         Status Check
       </p>
+      <br>
     </div>
-    <!-- <div id="id3"> -->
-    <!-- <img alt="Vue logo" src="../assets/gigi.png" /> -->
-    <h2 id="id2">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa,
-      vehicula in dolor quis, feugiat malesuada augue. In in cursus tellus,
-      vitae tristique erat. Suspendisse convallis, risus sed tempor placerat,
-      arcu nibh lacinia neque, eu consequat odio velit quis nisi. Curabitur
-      convallis egestas semper. Praesent et erat non tellus congue tempor a et
-      elit. Donec vitae nulla sit amet orci maximus posuere. Nullam sit amet
-      mauris sed dolor lobortis mattis. Interdum et malesuada fames ac ante
-      ipsum primis in faucibus. Suspendisse metus diam, sodales vitae sapien
-      sed, malesuada sagittis mi. Phasellus placerat massa dictum dolor lacinia
-      laoreet. In maximus lacinia neque, lobortis tempus est varius quis.
-      Curabitur tincidunt elementum lacus, non semper orci. Sed vulputate dui ut
-      mattis gravida. Vestibulum ac massa ac felis blandit volutpat non non
-      tellus. Praesent vehicula risus quis est vulputate vehicula. Cras blandit
-      in diam et cursus. Morbi sed sapien semper, sagittis tortor eu, euismod
-      lacus. Nam fringilla at ante id condimentum. Fusce luctus magna elit, ac
-      malesuada dolor placerat a. Nullam non est ornare, malesuada enim nec,
-      posuere quam. Donec ac tortor elementum, volutpat nibh vel, luctus quam.
-      Etiam lacinia scelerisque tellus ac aliquam.
-    </h2>
-    <button
+<div id="id11">
+  <br><br>
+  <button @click="goBack()"
       style="
         font-size: 30px;
         border-radius: 10px;
-        background-color: #1193fd;
-        color: white;
+        background-color: white;
+        color: #1193fd;
+        margin-left:-90%;
       "
     >
-      Analyze picture
+      Back
     </button>
-    <!-- </div> -->
+<br><br><br><br>
+    <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th style="font-size:35px">Image</th>
+                    <th style="font-size:35px">Result</th>
+                    <th style="font-size:35px">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="user in users" :key="user.id">
+                    <td style="font-size:26px">{{user.firstName}} {{user.lastName}}</td>
+                    <td style="font-size:26px">{{user.email}}</td>
+                    <td style="font-size:26px">{{user.role}}</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
   </div>
 </template>
 
 <script>
 export default {
   name: "Home",
+  
+   methods:{
+    goBack() {
+      return this.$router.go(-1);
+    }         
+  },
+
+ data() {
+        return {
+            users: [
+                { firstName: 'Frank', lastName: 'Murphy', email: 'Safe', role: '15/06/2021' },
+                { firstName: 'Vic', lastName: 'Reynolds', email: 'Unsafe', role: '19/09/2021' },
+                { firstName: 'Gina', lastName: 'Jabowski', email: 'Unsafe', role: '17/02/2021' },
+                { firstName: 'Jessi', lastName: 'Glaser', email: 'Safe', role: '23/03/2021' },
+                { firstName: 'Jay', lastName: 'Bilzerian', email: 'Safe', role: '15/07/2021' }
+            ]
+        };
+    }
+
+
 };
 </script>
 
@@ -108,12 +126,20 @@ export default {
   border: 1.5em;
 }
 
+#id11 {
+    background-image: url("../assets/gigi.png");
+    overflow: auto;
+    border-top: 0;
+    height: 100%;
+    width: 100%;
+}
+
 .home {
-  background-image: url("../assets/gigi.png");
   position: absolute;
   overflow: auto;
   border-top: 0;
   height: 100%;
+  width: 100%;
 }
 
 body {
