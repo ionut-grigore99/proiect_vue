@@ -4,6 +4,7 @@ import Analyze from '../views/Analyze.vue'
 import History from '../views/History.vue'
 import Result from '../views/Result.vue'
 
+
 const routes = [
   {
     path: '/',
