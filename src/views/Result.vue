@@ -88,7 +88,8 @@
         color: white;
         width:20%;
         height:10%;
-        margin-top:10%;
+        margin-top:1%;
+      
       "
     >
       Home
@@ -112,6 +113,7 @@ export default {
 <style scoped>
 #id1 {
   background-color: #1193fd;
+  
   /* margin:0;
     padding: 0; */
   /* position: absolute; */
@@ -126,7 +128,7 @@ export default {
 
 #id11 {
     background-image: url("../assets/gigi.png");
-    overflow: auto;
+    overflow: hidden;
     border-top: 0;
     height: 100%;
     width: 100%;
