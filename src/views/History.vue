@@ -55,19 +55,19 @@
       Back
     </button>
 <br><br><br><br>
-    <table class="table table-striped table-bordered">
+    <table class="w3-table w3-striped">
             <thead>
                 <tr>
-                    <th style="font-size:35px">Image</th>
-                    <th style="font-size:35px">Result</th>
-                    <th style="font-size:35px">Date</th>
+                    <th style="text-align:left;font-size:35px">Image</th>
+                    <th style="text-align:center;font-size:35px">Result</th>
+                    <th style="font-size:35px; text-align:right">Date</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="user in users" :key="user.id">
-                    <td style="font-size:26px">{{user.firstName}} {{user.lastName}}</td>
-                    <td style="font-size:26px">{{user.email}}</td>
-                    <td style="font-size:26px">{{user.role}}</td>
+                    <td style="text-align:left;color:black;font-size:26px">{{user.firstName}} {{user.lastName}}</td>
+                    <td style="text-align:center;color:black;font-size:26px">{{user.email}}</td>
+                    <td style="text-align:right;color:black;font-size:26px">{{user.role}}</td>
                 </tr>
             </tbody>
         </table>
@@ -140,6 +140,7 @@ export default {
   border-top: 0;
   height: 100%;
   width: 100%;
+  opacity: 1.5;
 }
 
 body {
