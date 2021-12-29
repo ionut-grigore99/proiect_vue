@@ -29,50 +29,83 @@
           color: white;
           font-size: 40px;
           font-style: italic;
-          text-align: left;
+          text-align: right;
+          margin-right:5%;
+          margin-top:1%;
+          margin-bottom:0%;
         "
       >
         Status Check
       </p>
+      <br>
     </div>
-    <!-- <div id="id3"> -->
-    <!-- <img alt="Vue logo" src="../assets/gigi.png" /> -->
-    <h2 id="id2">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa,
-     
-      elit. Donec vitae nulla sit amet orci maximus posuere. Nullam sit amet
-      mauris sed dolor lobortis mattis. Interdum et malesuada fames ac ante
-    </h2>
 
-    <p style=" color: white;
-  font-size: 25px;">
-     Result   
+    <div id="id11">
+
+      <br><br>
+     <button @click="goBack()"
+      style="
+        font-size: 30px;
+        border-radius: 10px;
+        background-color: white;
+        color: #1193fd;
+        margin-left:-90%;
+      "
+    >
+      Back
+    </button>
+
+
+    <p id="id2" style=" color: black;
+  font-size: 350%;margin-left:-30%; margin-top:2%">
+     Result  
     </p>
 
-    <p style=" color: white;
-  font-size: 25px;">
+    <p id="id2" style=" color: black;
+  font-size: 350%;margin-left:35%;margin-top:-7%; margin-bottom:-20%">
      Score  
     </p>
 
+<!-- bifa -->
+<span id="id17">&#10003;</span> 
+<!-- x ul -->
+<!-- <span id="id18">&#10005;</span> -->
+
+   <p id="id2" style=" color: black;
+  font-size: 350%;margin-left:-30%;margin-top:-25%">
+     Safe  
+    </p>
+       <p id="id2" style=" color: black;
+  font-size: 350%;margin-left:35%;margin-top:-7%">
+     80%  
+    </p>
      <router-link to="/">
     <button
       style="
         font-size: 30px;
-        border-radius: 10px;
+        border-radius: 25px;
         background-color: #1193fd;
         color: white;
+        width:20%;
+        height:10%;
+        margin-top:10%;
       "
     >
       Home
     </button>
     </router-link>
-    <!-- </div> -->
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "Home",
+   methods:{
+    goBack() {
+      return this.$router.go(-1);
+    }         
+  }
 };
 </script>
 
@@ -87,7 +120,16 @@ export default {
 #id2 {
   color: white;
   font-size: 25px;
-  width: 50%;
+  width: 100%;
+
+}
+
+#id11 {
+    background-image: url("../assets/gigi.png");
+    overflow: auto;
+    border-top: 0;
+    height: 100%;
+    width: 100%;
 }
 
 #id3 {
@@ -97,16 +139,26 @@ export default {
   /* position: absolute; */
 }
 
+#id17 {
+  font-size:600px;
+  color:green;
+}
+
+#id18 {
+  font-size:600px;
+  color:red;
+}
+
 #login {
   border: 1.5em;
 }
 
 .home {
-  background-image: url("../assets/gigi.png");
   position: absolute;
   overflow: auto;
   border-top: 0;
   height: 100%;
+  width: 100%;
 }
 
 body {
