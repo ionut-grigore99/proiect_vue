@@ -15,13 +15,13 @@
                             </li>
                         </a>
                         <a href="#">
-                  
+    
                             <li>
                                 <router-link to="/analyze">Analyze</router-link>
                             </li>
                         </a>
                         <a href="#">
-                        
+    
                             <li>
                                 <router-link to="/history">History</router-link>
                             </li>
@@ -32,98 +32,102 @@
             <input v-model="message" placeholder="Username..." style="width:7%; margin-right:10px" />
             <input v-model="message" placeholder="Password..." style="width:7%; margin-right:15px" />
             <button id="login" style="border-radius: 10px; font-size: 15px; width:5%">
-            Login
-          </button> 
-          <!-- //////////////////////////////////////////////////////////////////////// -->
+                    Login
+                  </button>
+            <!-- //////////////////////////////////////////////////////////////////////// -->
             <div>
-    <transition name="modal">
-      <div v-if="isOpen">
-        <div class="overlay" @click.self="isOpen = false;">
-          <div class="modal">
-            <span style="margin-left:-50%; font-size:25px;  ">Username</span><input v-model="message"  style="width:35%; height:30px; margin-right:0px;" /><br><br>
-            <span style="margin-left:-50%; font-size:25px; margin-right:;">Password</span><input v-model="message"  style="width:35%;height:30px;" /><br> <br>
-            <span style="margin-left:-33%; font-size:25px; margin-right:;">Confirm password</span><input v-model="message"  style="margin-left:55%;margin-right:-15;width:35%;height:30px;" /><br><br>
-            <span style=" font-size:25px; margin-left:25px;margin-right:auto; ">Email</span><input v-model="message"  style="margin-left:45%;margin-right:0;width:35%;height:30px;" /><br><br><br><br><br>
-             <span style=" font-size:25px; allign:left ">Email</span><input v-model="message"  style="margin-left:45%;margin-right:0;width:35%;height:30px;" /><br><br>
-              <span style=" font-size:25px; allign:left ">Emaidaadal</span><input v-model="message"  style="margin-left:45%;margin-right:0;width:35%;height:30px;" /><br><br>
-              <button style="
-            font-size: 30px;
-            border-radius: 25px;
-            background-color: #1193fd;
-            color: white;
-            width:30%;
-            height:10%;
-          ">
-          Register
-        </button>
-          </div>
-        </div>
-      </div>
-    </transition>
-    <p  style="cursor: pointer;margin-left:-10%;color:white; text-decoration: underline;" @click="isOpen = !isOpen;">
-      New member? Join now
-    </p>
-  </div>
+                <transition name="modal">
+                    <div v-if="isOpen">
+                        <div class="overlay" @click.self="isOpen = false;">
+                            <div class="modal">
+                                <span style="margin-right:130px;font-size:25px;  ">Username</span>
+                                <input v-model="message" style="margin-right:1%;width:35%; height:30px;" /><br><br>
 
-          <!-- //////////////////////////////////////////////////////////////////////// -->
-          
+                                <span style="margin-right:130px;font-size:25px; ">Password</span>
+                                <input v-model="message" style="margin-right:1%;width:35%;height:30px;" /><br> <br>
+
+                                <span style="font-size:25px;margin-right:40px;">Confirm password</span>
+                                <input v-model="message" style="margin-right:1%;width:35%;height:30px;" /><br><br>
+
+                                <span style=" font-size:25px; margin-right:180px; ">Email</span>
+                                <input v-model="message" style="margin-right:1%;width:35%;height:30px;" /><br><br>
+                                <button style="
+                    font-size: 30px;
+                    border-radius: 25px;
+                    background-color: #1193fd;
+                    color: white;
+                    width:30%;
+                    height:10%;
+                  ">
+                  Register
+                </button>
+                            </div>
+                        </div>
+                    </div>
+                </transition>
+                <p style="cursor: pointer;margin-left:-10%;color:white; text-decoration: underline;" @click="isOpen = !isOpen;">
+                    New member? Join now
+                </p>
+            </div>
+    
+            <!-- //////////////////////////////////////////////////////////////////////// -->
+    
             <p style="
-              color: white;
-              font-size: 40px;
-              font-style: italic;
-              text-align: right;
-              margin-right:5%;
-              margin-top:-2%;
-              margin-bottom:0%;
-             
-
-            ">
+                      color: white;
+                      font-size: 40px;
+                      font-style: italic;
+                      text-align: right;
+                      margin-right:5%;
+                      margin-top:-2%;
+                      margin-bottom:0%;
+                     
+        
+                    ">
                 Status Check
             </p>
             <br>
     
         </div>
- <div id="id11">
-        <h2 id="id2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, vehicula in dolor quis, feugiat malesuada augue. In in cursus tellus, vitae tristique erat. Suspendisse convallis, risus sed tempor placerat, arcu nibh lacinia neque, eu consequat
-            odio velit quis nisi. Curabitur convallis egestas semper. Praesent et erat non tellus congue tempor a et elit. Donec vitae nulla sit amet orci maximus posuere. Nullam sit amet mauris sed dolor lobortis mattis. Interdum et malesuada fames ac ante
-            ipsum primis in faucibus. Suspendisse metus diam, sodales vitae sapien sed, malesuada sagittis mi. Phasellus placerat massa dictum dolor lacinia laoreet. In maximus lacinia neque, lobortis tempus est varius quis. Curabitur tincidunt elementum
-            lacus, non semper orci. Sed vulputate dui ut mattis gravida. Vestibulum ac massa ac felis blandit volutpat non non tellus. Praesent vehicula risus quis est vulputate vehicula. Cras blandit in diam et cursus. Morbi sed sapien semper, sagittis tortor
-            eu, euismod lacus. Nam fringilla at ante id condimentum. Fusce luctus magna elit, ac malesuada dolor placerat a. Nullam non est ornare, malesuada enim nec, posuere quam. Donec ac tortor elementum, volutpat nibh vel, luctus quam. Etiam lacinia
-            scelerisque tellus ac aliquam.
-        </h2>
-        <router-link to="/analyze">
-            <button style="
-            font-size: 30px;
-            border-radius: 25px;
-            background-color: #1193fd;
-            color: white;
-             width:20%;
-            height:10%;
-            margin-bottom:7%;
-          ">
-          Analyze picture
-        </button>
-        </router-link>
-        </div> 
+        <div id="id11">
+            <h2 id="id2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, vehicula in dolor quis, feugiat malesuada augue. In in cursus tellus, vitae tristique erat. Suspendisse convallis, risus sed tempor placerat, arcu nibh lacinia neque, eu consequat
+                odio velit quis nisi. Curabitur convallis egestas semper. Praesent et erat non tellus congue tempor a et elit. Donec vitae nulla sit amet orci maximus posuere. Nullam sit amet mauris sed dolor lobortis mattis. Interdum et malesuada fames ac
+                ante ipsum primis in faucibus. Suspendisse metus diam, sodales vitae sapien sed, malesuada sagittis mi. Phasellus placerat massa dictum dolor lacinia laoreet. In maximus lacinia neque, lobortis tempus est varius quis. Curabitur tincidunt elementum
+                lacus, non semper orci. Sed vulputate dui ut mattis gravida. Vestibulum ac massa ac felis blandit volutpat non non tellus. Praesent vehicula risus quis est vulputate vehicula. Cras blandit in diam et cursus. Morbi sed sapien semper, sagittis
+                tortor eu, euismod lacus. Nam fringilla at ante id condimentum. Fusce luctus magna elit, ac malesuada dolor placerat a. Nullam non est ornare, malesuada enim nec, posuere quam. Donec ac tortor elementum, volutpat nibh vel, luctus quam. Etiam
+                lacinia scelerisque tellus ac aliquam.
+            </h2>
+            <router-link to="/analyze">
+                <button style="
+                    font-size: 30px;
+                    border-radius: 25px;
+                    background-color: #1193fd;
+                    color: white;
+                     width:20%;
+                    height:10%;
+                    margin-bottom:7%;
+                  ">
+                  Analyze picture
+                </button>
+            </router-link>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
     name: "Home",
-     data: function() {
-    return {
-      isOpen: false
-    };
-  }
+    data: function() {
+        return {
+            isOpen: false
+        };
+    }
 };
 </script>
 
 <style scoped>
 #id1 {
     background-color: #1193fd;
-    
     /* margin:0;
     padding: 0; */
     /* position: absolute; */
@@ -146,7 +150,6 @@ export default {
     border: 1.5em;
 }
 
-
 #id11 {
     background-image: url("../assets/gigi.png");
     overflow: auto;
@@ -154,13 +157,12 @@ export default {
     height: 100%;
     width: auto;
 }
-.home {
 
+.home {
     position: absolute;
     overflow: auto;
     border-top: 0;
-    width:100%;
- 
+    width: 100%;
 }
 
 body {
@@ -266,47 +268,49 @@ body {
 }
 
 .modal {
-  width: 500px;
-  margin: 0px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px 3px;
-  transition: all 0.2s ease-in;
-  font-family: Helvetica, Arial, sans-serif;
+    width: 500px;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px 3px;
+    transition: all 0.2s ease-in;
+    font-family: Helvetica, Arial, sans-serif;
 }
+
 .fadeIn-enter {
-  opacity: 0;
+    opacity: 0;
 }
 
 .fadeIn-leave-active {
-  opacity: 0;
-  transition: all 0.2s step-end;
+    opacity: 0;
+    transition: all 0.2s step-end;
 }
 
 .fadeIn-enter .modal,
 .fadeIn-leave-active.modal {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
+
 #id10 {
-  padding: 7px;
-  margin-top: 10px;
-  background-color: green;
-  color: white;
-  font-size: 1.1rem;
+    padding: 7px;
+    margin-top: 10px;
+    background-color: green;
+    color: white;
+    font-size: 1.1rem;
 }
 
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background: #00000094;
-  z-index: 999;
-  transition: opacity 0.2s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #00000094;
+    z-index: 999;
+    transition: opacity 0.2s ease;
 }
 </style>
