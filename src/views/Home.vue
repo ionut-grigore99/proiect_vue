@@ -29,11 +29,16 @@
                     </ul>
                 </div>
             </nav>
-            <form v-on:submit="login">
-                <input v-model="username" placeholder="Username..." style="width:7%; margin-right:10px" required/>
-                <input type="password" v-model="password" placeholder="Password..." style="width:7%; margin-right:15px" required/>
-                <input type="submit" style="border-radius: 10px; font-size: 15px; width:5%"/>
-            </form>
+            <div v-if="this.authUser.user===null">
+                <form v-on:submit="login">
+                    <input v-model="username" placeholder="Username..." style="width:7%; margin-right:10px" required/>
+                    <input type="password" v-model="password" placeholder="Password..." style="width:7%; margin-right:15px" required/>
+                    <input type="submit" style="border-radius: 10px; font-size: 15px; width:5%"/>
+                </form>
+            </div>
+            <div v-else>
+                <button v-on:click="logout" style="border-radius: 10px; font-size: 15px; width:5%">Logout</button>
+            </div>
             <!-- //////////////////////////////////////////////////////////////////////// -->
             <div>
                 <transition name="modal">
@@ -65,9 +70,11 @@
                         </div>
                     </div>
                 </transition>
-                <p style="cursor: pointer;margin-left:-10%;color:white; text-decoration: underline;" @click="isOpen = !isOpen;">
-                    New member? Join now
-                </p>
+                <div v-if="this.authUser.user===null">
+                    <p style="cursor: pointer;margin-left:-10%;color:white; text-decoration: underline;" @click="isOpen = !isOpen;">
+                        New member? Join now
+                    </p>
+                </div>
             </div>
     
             <!-- //////////////////////////////////////////////////////////////////////// -->
@@ -116,6 +123,7 @@
 
 <script>
 import axios from 'axios';
+import {auth, authUser, clearUser} from '../scripts/userManagement.js'
 
 export default {
     name: "Home",
@@ -123,7 +131,8 @@ export default {
         return {
             isOpen: false,
             username: "",
-            password: ""
+            password: "",
+            authUser: auth,
         };
     },
     methods: {
@@ -137,6 +146,7 @@ export default {
                 try{
                     axios.post("http://localhost:8080/login", data).then((response)=>{
                         console.log(response);
+                        authUser(response.data);
                     })
                 }catch(e){
                     console.log(e);
@@ -144,6 +154,13 @@ export default {
                 
             }
             login();
+        },
+        logout(e){
+            e.preventDefault();
+            let logout = () => {
+                clearUser();
+            }
+            logout();
         }
     }
 };
