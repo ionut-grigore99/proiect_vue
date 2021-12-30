@@ -29,11 +29,11 @@
                     </ul>
                 </div>
             </nav>
-            <input v-model="message" placeholder="Username..." style="width:7%; margin-right:10px" />
-            <input v-model="message" placeholder="Password..." style="width:7%; margin-right:15px" />
-            <button id="login" style="border-radius: 10px; font-size: 15px; width:5%">
-                    Login
-                  </button>
+            <form v-on:submit="login">
+                <input v-model="username" placeholder="Username..." style="width:7%; margin-right:10px" required/>
+                <input type="password" v-model="password" placeholder="Password..." style="width:7%; margin-right:15px" required/>
+                <input type="submit" style="border-radius: 10px; font-size: 15px; width:5%"/>
+            </form>
             <!-- //////////////////////////////////////////////////////////////////////// -->
             <div>
                 <transition name="modal">
@@ -115,12 +115,36 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: "Home",
     data: function() {
         return {
-            isOpen: false
+            isOpen: false,
+            username: "",
+            password: ""
         };
+    },
+    methods: {
+        login(e) {
+            e.preventDefault();
+            let login = () => {
+                var data = {
+                    "username": this.username,
+                    "password": this.password
+                }
+                try{
+                    axios.post("http://localhost:8080/login", data).then((response)=>{
+                        console.log(response);
+                    })
+                }catch(e){
+                    console.log(e);
+                }
+                
+            }
+            login();
+        }
     }
 };
 </script>
