@@ -52,10 +52,10 @@
               Back
             </button>
      <br><br>
-            <h2 id="id2" style="margin-left:-5%;">
-                File name:
-            </h2>
-            <input STYLE="margin-right:3%; margin-left:-35%; width:20%; height:4%" v-model="message" />
+            <!--<h2 id="id2" style="margin-left:-5%;">
+                    File name:
+                </h2>
+            <input style="margin-right:3%; margin-left:-35%; width:20%; height:4%" v-model="message" />
             <button style="
                 font-size: 30px;
                 border-radius: 25px;
@@ -65,9 +65,22 @@
                 height:6%;
               ">
               Browse
+            </button> --> 
+                
+            <input type = "file" @change="handleFileUpload( $event )"><br>
+            <button style="
+                font-size: 30px;
+                border-radius: 25px;
+                background-color: #1193fd;
+                color: white;
+                width:20%;
+                height:10%;
+                margin-left:-50%;
+              " v-on:click="submitFile()">
+              Analyze
             </button>
             <br><br><br>
-            <router-link to="/result">
+            <!-- <router-link to="/result">
                 <button style="
                 font-size: 30px;
                 border-radius: 25px;
@@ -79,17 +92,40 @@
               ">
               Analyze
             </button>
-            </router-link>
+            </router-link> -->
         </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
+    data(){
+        return{
+            file:''
+        }
+    },
     name: "Home",
     methods: {
         goBack() {
             return this.$router.go(-1);
+        },
+        handleFileUpload(){
+            this.file = event.target.files[0];
+        },
+        submitFile(){
+            let formData = new FormData();
+            formData.append('file', this.file);
+            axios.post('http://localhost:5000/process', formData, {
+                headers: {
+                'Content-Type': 'multipart/form-data'
+            }}).then((response)=>{
+                console.log(response);
+                this.$router.push('/result');
+            }).catch((err)=>{
+                console.log(err)
+            })
         }
     }
 };
