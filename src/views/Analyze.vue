@@ -1,336 +1,86 @@
 <template>
     <div class="home">
-    
-    
-    
         <div id="id1">
-    
-    
-    
             <nav role="navigation" style="margin: auto">
-    
-    
-    
                 <div id="menuToggle" style="margin: auto">
-    
-    
-    
                     <input type="checkbox" />
-    
-    
-    
                     <span></span>
-    
-    
-    
                     <span></span>
-    
-    
-    
                     <span></span>
-    
-    
-    
-    
-    
-    
-    
                     <ul id="menu">
-    
-    
-    
                         <a href="#">
-    
-    
-    
-    
-    
                             <li>
-    
-    
-    
                                 <router-link to="/">Home</router-link>
-    
-    
-    
                             </li>
-    
-    
-    
                         </a>
-    
-    
-    
                         <a href="#">
-    
-    
-    
-    
-    
-    
-    
                             <li>
-    
-    
-    
                                 <router-link to="/analyze">Analyze</router-link>
-    
-    
-    
                             </li>
-    
-    
-    
                         </a>
-    
-    
-    
                         <a href="#">
-    
-    
-    
-    
-    
+
                             <li>
-    
-    
-    
                                 <router-link to="/history">History</router-link>
-    
-    
-    
                             </li>
-    
-    
-    
                         </a>
-    
-    
-    
                     </ul>
-    
-    
-    
                 </div>
-    
-    
-    
             </nav>
-    
-    
-    
-    
-    
-    
-    
             <p style="
-    
-        
-    
                   color: white;
-    
-        
-    
                   font-size: 40px;
-    
-        
-    
                   font-style: italic;
-    
-        
-    
                   text-align: right;
-    
-        
-    
                   margin-right:5%;
-    
-        
-                 margin-top:1%;
+                  margin-top:1%;
                   margin-bottom:0px;
-    
-        
-    
-                  
-    
-        
-    
                 ">
-    
-    
-    
                 Status Check
-    
-    
-    
             </p>
     <br>
-    
-    
         </div>
-    
-    
-    
         <div id="id11">
-    
-    
     <br><br>
             <button @click="goBack()" style="
                 margin-left:-90%;
-        
-    
                 font-size: 30px;
-    
-        
-    
                 border-radius: 10px;
-    
-        
-    
                 background-color: white;
-    
-        
-    
                 color: #1193fd;
-    
-        
-    
               ">
-    
-        
-    
               Back
-    
-        
-    
             </button>
-    
-    
      <br><br>
             <h2 id="id2" style="margin-left:-5%;">
-    
-    
-    
                 File name:
-    
-    
-    
             </h2>
-    
-    
-    
             <input STYLE="margin-right:3%; margin-left:-35%; width:20%; height:4%" v-model="message" />
-    
-    
-    
             <button style="
-    
-        
-    
                 font-size: 30px;
-    
-        
-    
                 border-radius: 25px;
-    
-        
-    
                 background-color: white;
-    
-        
-    
                 color: #1193fd;
-    
-        
-    
                 width:12%;
-    
-        
-    
                 height:6%;
-    
-        
-    
-        
-    
-        
-    
               ">
-    
-        
-    
               Browse
-    
-        
-    
             </button>
-    
-    
-    
-    
-    
-    
-    
             <br><br><br>
-    
-    
-    
             <router-link to="/result">
-    
-    
-    
                 <button style="
-    
-        
-    
                 font-size: 30px;
-    
-        
-    
                 border-radius: 25px;
-    
-        
-    
                 background-color: #1193fd;
-    
-        
-    
                 color: white;
-    
-        
-    
                 width:20%;
-    
-        
-    
                 height:10%;
-    
-        
-    
                 margin-left:-50%;
-    
-        
-    
               ">
-    
-        
-    
               Analyze
-    
-        
-    
             </button>
-    
-    
-    
             </router-link>
-    
-    
-    
         </div>
-    
-    
-    
     </div>
 </template>
 
