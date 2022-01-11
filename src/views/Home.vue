@@ -20,7 +20,7 @@
                                 <router-link to="/analyze">Analyze</router-link>
                             </li>
                         </a>
-                        <a href="#">
+                        <a v-if="!(this.authUser.user===null)" href="#">
     
                             <li>
                                 <router-link to="/history">History</router-link>
