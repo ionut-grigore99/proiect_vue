@@ -20,7 +20,7 @@
                                 <router-link to="/analyze">Analyze</router-link>
                             </li>
                         </a>
-                        <a href="#">
+                        <a v-if="!(this.authUser.user===null)" href="#">
     
                             <li>
                                 <router-link to="/history">History</router-link>
@@ -29,11 +29,16 @@
                     </ul>
                 </div>
             </nav>
-            <input v-model="message" placeholder="Username..." style="width:7%; margin-right:10px" />
-            <input v-model="message" placeholder="Password..." style="width:7%; margin-right:15px" />
-            <button id="login" style="border-radius: 10px; font-size: 15px; width:5%">
-                    Login
-                  </button>
+            <div v-if="this.authUser.user===null">
+                <form v-on:submit="login">
+                    <input v-model="username" placeholder="Username..." style="width:7%; margin-right:10px" required/>
+                    <input type="password" v-model="password" placeholder="Password..." style="width:7%; margin-right:15px" required/>
+                    <input type="submit" style="border-radius: 10px; font-size: 15px; width:5%"/>
+                </form>
+            </div>
+            <div v-else>
+                <button v-on:click="logout" style="border-radius: 10px; font-size: 15px; width:5%">Logout</button>
+            </div>
             <!-- //////////////////////////////////////////////////////////////////////// -->
             <div>
                 <transition name="modal">
@@ -65,9 +70,11 @@
                         </div>
                     </div>
                 </transition>
-                <p style="cursor: pointer;margin-left:-10%;color:white; text-decoration: underline;" @click="isOpen = !isOpen;">
-                    New member? Join now
-                </p>
+                <div v-if="this.authUser.user===null">
+                    <p style="cursor: pointer;margin-left:-10%;color:white; text-decoration: underline;" @click="isOpen = !isOpen;">
+                        New member? Join now
+                    </p>
+                </div>
             </div>
     
             <!-- //////////////////////////////////////////////////////////////////////// -->
@@ -115,12 +122,53 @@
 </template>
 
 <script>
+import axios from 'axios';
+import {auth, authUser, clearUser} from '../scripts/userManagement.js'
+
 export default {
     name: "Home",
     data: function() {
         return {
-            isOpen: false
+            isOpen: false,
+            username: "",
+            password: "",
+            authUser: auth,
         };
+    },
+    methods: {
+        login(e) {
+            e.preventDefault();
+            let login = () => {
+                var data = {
+                    "username": this.username,
+                    "password": this.password
+                }
+                try{
+                    axios.post("http://localhost:8080/login", data).then((response)=>{
+                        console.log(response);
+                        authUser(response.data);
+                    })
+                }catch(e){
+                    console.log(e);
+                }
+                
+            }
+            login();
+        },
+        logout(e){
+            e.preventDefault();
+            let logout = () => {
+                try{
+                    axios.get("http://localhost:8080/logout").then((response)=>{
+                        console.log(response);
+                        clearUser();
+                    })
+                }catch(e){
+                    console.log(e);
+                }    
+            }
+            logout();
+        }
     }
 };
 </script>
