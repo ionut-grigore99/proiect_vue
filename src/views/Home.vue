@@ -158,7 +158,14 @@ export default {
         logout(e){
             e.preventDefault();
             let logout = () => {
-                clearUser();
+                try{
+                    axios.get("http://localhost:8080/logout").then((response)=>{
+                        console.log(response);
+                        clearUser();
+                    })
+                }catch(e){
+                    console.log(e);
+                }    
             }
             logout();
         }
