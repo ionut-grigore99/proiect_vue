@@ -99,6 +99,7 @@
 
 <script>
 import axios from 'axios';
+import {updateResult} from '@/scripts/result.js';
 
 export default {
     data(){
@@ -121,7 +122,7 @@ export default {
                 headers: {
                 'Content-Type': 'multipart/form-data'
             }}).then((response)=>{
-                console.log(response);
+                updateResult(response.data.result);
                 this.$router.push('/result');
             }).catch((err)=>{
                 console.log(err)

@@ -95,17 +95,25 @@
       Home
     </button>
     </router-link>
+    <h1>{{this.result}}</h1>
     </div>
   </div>
 </template>
 
 <script>
+import {result} from '@/scripts/result.js';
+
 export default {
   name: "Home",
    methods:{
     goBack() {
       return this.$router.go(-1);
     }         
+  },
+  data(){
+    return{
+      result: result
+    }
   }
 };
 </script>
