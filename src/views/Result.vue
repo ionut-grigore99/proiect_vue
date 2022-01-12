@@ -17,7 +17,7 @@
               <!-- <li>Analyze</li> -->
               <li><router-link to="/analyze">Analyze</router-link></li>
             </a>
-            <a href="#">
+            <a v-if="!(this.authUser.user===null)" href="#">
               <!-- <li>History</li> -->
               <li><router-link to="/history">History</router-link></li>
             </a>
@@ -102,6 +102,7 @@
 
 <script>
 import {result} from '@/scripts/result.js';
+import {auth} from '@/scripts/userManagement.js';
 
 export default {
   name: "Home",
@@ -112,7 +113,8 @@ export default {
   },
   data(){
     return{
-      result: result
+      result: result,
+      authUser: auth
     }
   }
 };
