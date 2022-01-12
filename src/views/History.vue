@@ -58,16 +58,16 @@
     <table class="w3-table w3-striped">
             <thead>
                 <tr>
-                    <th style="text-align:left;font-size:35px">Image</th>
-                    <th style="text-align:center;font-size:35px">Result</th>
+                    <th style="text-align:left;font-size:35px">Image Name</th>
                     <th style="font-size:35px; text-align:right">Date</th>
+                    <th style="text-align:center;font-size:35px">Result</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="user in users" :key="user.id">
-                    <td style="text-align:left;color:black;font-size:26px">{{user.firstName}} {{user.lastName}}</td>
-                    <td style="text-align:center;color:black;font-size:26px">{{user.email}}</td>
-                    <td style="text-align:right;color:black;font-size:26px">{{user.role}}</td>
+                <tr v-for="history in histories" :key="history.id">
+                    <td style="text-align:left;color:black;font-size:26px">{{history.file_name}}</td>
+                    <td style="text-align:right;color:black;font-size:26px">{{history.Date}}</td>
+                    <td style="text-align:center;color:black;font-size:26px">{{history.Result}}%</td>
                 </tr>
             </tbody>
         </table>
@@ -89,18 +89,13 @@ export default {
 
  data() {
         return {
-            users: [
-                { firstName: 'Frank', lastName: 'Murphy', email: 'Safe', role: '15/06/2021' },
-                { firstName: 'Vic', lastName: 'Reynolds', email: 'Unsafe', role: '19/09/2021' },
-                { firstName: 'Gina', lastName: 'Jabowski', email: 'Unsafe', role: '17/02/2021' },
-                { firstName: 'Jessi', lastName: 'Glaser', email: 'Safe', role: '23/03/2021' },
-                { firstName: 'Jay', lastName: 'Bilzerian', email: 'Safe', role: '15/07/2021' }
-            ]
+            histories: []
         };
     },
   mounted(){
     axios.get('http://localhost:8080/history').then((response)=>{
       console.log(response.data);
+      this.histories = response.data;
     }).catch((err)=>{
       console.log(err);
     })
