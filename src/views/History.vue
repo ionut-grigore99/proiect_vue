@@ -76,6 +76,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "Home",
   
@@ -95,7 +97,14 @@ export default {
                 { firstName: 'Jay', lastName: 'Bilzerian', email: 'Safe', role: '15/07/2021' }
             ]
         };
-    }
+    },
+  mounted(){
+    axios.get('http://localhost:8080/history').then((response)=>{
+      console.log(response.data);
+    }).catch((err)=>{
+      console.log(err);
+    })
+  }
 
 
 };
