@@ -100,11 +100,13 @@
 <script>
 import axios from 'axios';
 import {updateResult} from '@/scripts/result.js';
+import {auth} from '@/scripts/userManagement.js'
 
 export default {
     data(){
         return{
-            file:''
+            file:'',
+            authUser: auth
         }
     },
     name: "Home",
@@ -118,12 +120,29 @@ export default {
         submitFile(){
             let formData = new FormData();
             formData.append('file', this.file);
+            let fileName = this.file.name;
             axios.post('http://localhost:5000/process', formData, {
                 headers: {
                 'Content-Type': 'multipart/form-data'
             }}).then((response)=>{
-                updateResult(response.data.result);
-                this.$router.push('/result');
+                let result = response.data.result;
+
+                updateResult(result);
+
+                if(this.authUser.user!=null){
+                    let data={
+                        'file_name': fileName,
+                        'result': result.toString()
+                    }
+
+                    axios.post('http://localhost:8080/history', data).then(()=>{
+                        this.$router.push('/result');
+                    }).catch((err)=>{
+                        console.log(err);
+                    })
+                }else{
+                    this.$router.push('/result');
+                }
             }).catch((err)=>{
                 console.log(err)
             })
