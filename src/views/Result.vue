@@ -67,17 +67,22 @@
     </p>
 
 <!-- bifa -->
-<span id="id17">&#10003;</span> 
+<span v-if="this.result<=50" id="id17">&#10003;</span> 
+<span v-if="this.result>50" id="id18">&#10005;</span> 
 <!-- x ul -->
 <!-- <span id="id18">&#10005;</span> -->
 
-   <p id="id2" style=" color: black;
+   <p v-if="this.result>50" id="id2" style=" color: black;
+  font-size: 350%;margin-left:-30%;margin-top:-25%">
+     Unsafe  
+    </p>
+    <p v-if="this.result<=50" id="id2" style=" color: black;
   font-size: 350%;margin-left:-30%;margin-top:-25%">
      Safe  
     </p>
        <p id="id2" style=" color: black;
   font-size: 350%;margin-left:35%;margin-top:-7%">
-     80%  
+     {{this.result}}%  
     </p>
      <router-link to="/">
     <button
@@ -95,7 +100,6 @@
       Home
     </button>
     </router-link>
-    <h1>{{this.result}}</h1>
     </div>
   </div>
 </template>

@@ -126,6 +126,7 @@ export default {
                 'Content-Type': 'multipart/form-data'
             }}).then((response)=>{
                 let result = response.data.result;
+                result = (result*100).toFixed(2)
 
                 updateResult(result);
 
