@@ -46,17 +46,17 @@
                         <div class="overlay" @click.self="isOpen = false;">
                             <div class="modal">
                                 <span style="margin-right:130px;font-size:25px;  ">Username</span>
-                                <input v-model="message" style="margin-right:1%;width:35%; height:30px;" /><br><br>
+                                <input v-model="regUsername" style="margin-right:1%;width:35%; height:30px;" /><br><br>
 
                                 <span style="margin-right:130px;font-size:25px; ">Password</span>
-                                <input v-model="message" style="margin-right:1%;width:35%;height:30px;" /><br> <br>
+                                <input v-model="regPassword" style="margin-right:1%;width:35%;height:30px;" /><br> <br>
 
                                 <span style="font-size:25px;margin-right:40px;">Confirm password</span>
-                                <input v-model="message" style="margin-right:1%;width:35%;height:30px;" /><br><br>
+                                <input v-model="regPasswordConfirm" style="margin-right:1%;width:35%;height:30px;" /><br><br>
 
                                 <span style=" font-size:25px; margin-right:180px; ">Email</span>
-                                <input v-model="message" style="margin-right:1%;width:35%;height:30px;" /><br><br>
-                                <button style="
+                                <input v-model="regEmail" style="margin-right:1%;width:35%;height:30px;" /><br><br>
+                                <button @click="register" style="
                     font-size: 30px;
                     border-radius: 25px;
                     background-color: #1193fd;
@@ -132,6 +132,10 @@ export default {
             username: "",
             password: "",
             authUser: auth,
+            regUsername: "",
+            regPassword: "",
+            regPasswordConfirm: "",
+            regEmail: ""
         };
     },
     methods: {
@@ -167,7 +171,27 @@ export default {
                 }    
             }
             logout();
-        }
+        },
+        register(e) {
+            e.preventDefault();
+            let register = () => {
+                var data = {
+                    "username": this.regUsername,
+                    "password": this.regPassword,
+                    "email": this.regEmail
+                }
+                try{
+                    axios.post("http://localhost:8080/user", data).then((response)=>{
+                        console.log(response);
+                        this.isOpen = false;
+                    })
+                }catch(e){
+                    console.log(e);
+                }
+                
+            }
+            register();
+        },
     }
 };
 </script>
