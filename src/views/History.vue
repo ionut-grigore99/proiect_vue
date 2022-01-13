@@ -50,12 +50,13 @@
         background-color: white;
         color: #1193fd;
         margin-left:-90%;
+        cursor: pointer;
       "
     >
       Back
     </button>
 <br><br><br><br>
-    <table class="w3-table w3-striped">
+    <table id="table">
             <thead>
                 <tr>
                     <th style="text-align:left;font-size:35px">Image Name</th>
@@ -65,9 +66,9 @@
             </thead>
             <tbody>
                 <tr v-for="history in histories" :key="history.id">
-                    <td style="text-align:left;color:black;font-size:26px">{{history.file_name}}</td>
-                    <td style="text-align:right;color:black;font-size:26px">{{history.Date}}</td>
-                    <td style="text-align:center;color:black;font-size:26px">{{history.Result}}%</td>
+                    <td style="text-align:left;font-size:26px">{{history.file_name}}</td>
+                    <td style="text-align:right;font-size:26px">{{history.Date}}</td>
+                    <td style="text-align:center;font-size:26px">{{history.Result}}%</td>
                 </tr>
             </tbody>
         </table>
@@ -96,6 +97,13 @@ export default {
     axios.get('http://localhost:8080/history').then((response)=>{
       console.log(response.data);
       this.histories = response.data;
+      this.histories.forEach(history =>{
+        let date = new Date(history.Date);
+        let dateString = date.toString();
+        let ds = dateString.split('GMT');
+        history.Date = ds[0];
+        
+      })
     }).catch((err)=>{
       console.log(err);
     })
@@ -108,9 +116,7 @@ export default {
 <style scoped>
 #id1 {
   background-color: #1193fd;
-  /* margin:0;
-    padding: 0; */
-  /* position: absolute; */
+  height: 143px;
 }
 
 #id2 {
@@ -120,10 +126,7 @@ export default {
 }
 
 #id3 {
-  /* background-image: url("../assets/gigi.png"); */
-  /* overflow: visible; */
   margin: 0;
-  /* position: absolute; */
 }
 
 #login {
@@ -131,20 +134,20 @@ export default {
 }
 
 #id11 {
-    background-image: url("../assets/gigi.png");
+    background: url("../assets/gigi.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+
     overflow: auto;
     border-top: 0;
-    height: 100%;
-    width: 100%;
+    max-width: 100%;
+    height:790px;
 }
 
 .home {
-  position: absolute;
-  overflow: auto;
   border-top: 0;
-  height: 100%;
   width: 100%;
-  opacity: 1.5;
 }
 
 body {
@@ -248,5 +251,12 @@ body {
 
 #menuToggle input:checked ~ ul {
   transform: none;
+}
+
+#table{
+  color: white; 
+  background-color: rgba(255,255,255,0);
+  width: 98%;
+  margin-left: 2%;
 }
 </style>

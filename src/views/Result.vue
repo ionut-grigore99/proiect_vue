@@ -10,15 +10,12 @@
 
           <ul id="menu">
             <a href="#">
-              <!-- <li>Home</li> -->
               <li><router-link to="/">Home</router-link></li>
             </a>
             <a href="#">
-              <!-- <li>Analyze</li> -->
               <li><router-link to="/analyze">Analyze</router-link></li>
             </a>
             <a v-if="!(this.authUser.user===null)" href="#">
-              <!-- <li>History</li> -->
               <li><router-link to="/history">History</router-link></li>
             </a>
           </ul>
@@ -49,57 +46,51 @@
         border-radius: 10px;
         background-color: white;
         color: #1193fd;
-        margin-left:-90%;
+        margin-left: 2%;
+        cursor: pointer;
       "
     >
       Back
     </button>
+    <br>
+    <div id="id2">
+      <div id="id20"> 
+        <p>Result</p>
+        <p v-if="this.result>50">
+          Unsafe  
+        </p>
+        <p v-if="this.result<=50">
+          Safe  
+        </p>
+      </div>
+      <div id="id20">
+        <span v-if="this.result<=50" id="id17">&#10003;</span> 
+        <span v-if="this.result>50" id="id18">&#10005;</span> 
+      </div>
+      <div id="id20">
+        <p>Score</p>
+        <p>{{this.result}}%</p>
+      </div>
+    </div>
 
-
-    <p id="id2" style=" color: black;
-  font-size: 350%;margin-left:-30%; margin-top:2%">
-     Result  
-    </p>
-
-    <p id="id2" style=" color: black;
-  font-size: 350%;margin-left:35%;margin-top:-7%; margin-bottom:-20%">
-     Score  
-    </p>
-
-<!-- bifa -->
-<span v-if="this.result<=50" id="id17">&#10003;</span> 
-<span v-if="this.result>50" id="id18">&#10005;</span> 
-<!-- x ul -->
-<!-- <span id="id18">&#10005;</span> -->
-
-   <p v-if="this.result>50" id="id2" style=" color: black;
-  font-size: 350%;margin-left:-30%;margin-top:-25%">
-     Unsafe  
-    </p>
-    <p v-if="this.result<=50" id="id2" style=" color: black;
-  font-size: 350%;margin-left:-30%;margin-top:-25%">
-     Safe  
-    </p>
-       <p id="id2" style=" color: black;
-  font-size: 350%;margin-left:35%;margin-top:-7%">
-     {{this.result}}%  
-    </p>
-     <router-link to="/">
+    <div id="id3">
+      <router-link to="/">
     <button
       style="
         font-size: 30px;
         border-radius: 25px;
         background-color: #1193fd;
         color: white;
-        width:20%;
-        height:10%;
-        margin-top:1%;
-      
+        width: 20%;
+        height: 50%;
+        cursor: pointer;
       "
     >
       Home
     </button>
     </router-link>
+    </div>
+
     </div>
   </div>
 </template>
@@ -127,41 +118,51 @@ export default {
 <style scoped>
 #id1 {
   background-color: #1193fd;
-  
-  /* margin:0;
-    padding: 0; */
-  /* position: absolute; */
+  height: 143px;
 }
 
 #id2 {
-  color: white;
-  font-size: 25px;
+  height: 400px;
   width: 100%;
+}
 
+#id20{
+  float: left;
+  width: 33.33%;
+  height: 100%;
+  text-align: center;
+  padding: 50px;
+  font-size: 50px;
+  color: white;
 }
 
 #id11 {
-    background-image: url("../assets/gigi.png");
-    overflow: hidden;
+    background: url("../assets/gigi.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+
+    overflow: auto;
     border-top: 0;
-    height: 100%;
-    width: 100%;
+    max-width: 100%;
+    height:790px;
+    padding: 2%;
+    text-align: left;
 }
 
 #id3 {
-  /* background-image: url("../assets/gigi.png"); */
-  /* overflow: visible; */
-  margin: 0;
-  /* position: absolute; */
+  margin-top: 5%;
+  text-align: center;
+  height: 100px;
 }
 
 #id17 {
-  font-size:600px;
+  font-size:200px;
   color:green;
 }
 
 #id18 {
-  font-size:600px;
+  font-size:200px;
   color:red;
 }
 
@@ -170,10 +171,7 @@ export default {
 }
 
 .home {
-  position: absolute;
-  overflow: auto;
   border-top: 0;
-  height: 100%;
   width: 100%;
 }
 

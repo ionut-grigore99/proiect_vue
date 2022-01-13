@@ -33,7 +33,7 @@
                 <form v-on:submit="login">
                     <input v-model="username" placeholder="Username..." style="width:7%; margin-right:10px" required/>
                     <input type="password" v-model="password" placeholder="Password..." style="width:7%; margin-right:15px" required/>
-                    <input type="submit" style="border-radius: 10px; font-size: 15px; width:5%"/>
+                    <input type="submit" style="border-radius: 10px; font-size: 15px; width:5%; cursor: pointer;" value="Login"/>
                 </form>
             </div>
             <div v-else>
@@ -63,6 +63,7 @@
                     color: white;
                     width:30%;
                     height:10%;
+                    cursor: pointer;
                   ">
                   Register
                 </button>
@@ -80,16 +81,14 @@
             <!-- //////////////////////////////////////////////////////////////////////// -->
     
             <p style="
-                      color: white;
-                      font-size: 40px;
-                      font-style: italic;
-                      text-align: right;
-                      margin-right:5%;
-                      margin-top:-2%;
-                      margin-bottom:0%;
-                     
-        
-                    ">
+                    color: white;
+                    font-size: 40px;
+                    font-style: italic;
+                    text-align: right;
+                    margin-right:5%;
+                    margin-top:-2%;
+                    margin-bottom:0%;
+                ">
                 Status Check
             </p>
             <br>
@@ -110,9 +109,9 @@
                     border-radius: 25px;
                     background-color: #1193fd;
                     color: white;
-                     width:20%;
+                    width:20%;
                     height:10%;
-                    margin-bottom:7%;
+                    cursor: pointer;
                   ">
                   Analyze picture
                 </button>
@@ -176,22 +175,20 @@ export default {
 <style scoped>
 #id1 {
     background-color: #1193fd;
-    /* margin:0;
-    padding: 0; */
-    /* position: absolute; */
+    height: 143px;
 }
 
 #id2 {
     color: white;
     font-size: 25px;
-    width: 50%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
 #id3 {
-    /* background-image: url("../assets/gigi.png"); */
-    /* overflow: visible; */
     margin: 0;
-    /* position: absolute; */
 }
 
 #login {
@@ -199,16 +196,18 @@ export default {
 }
 
 #id11 {
-    background-image: url("../assets/gigi.png");
+    background: url("../assets/gigi.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+
     overflow: auto;
     border-top: 0;
-    height: 100%;
-    width: auto;
+    max-width: 100%;
+    height:790px;
 }
 
 .home {
-    position: absolute;
-    overflow: auto;
     border-top: 0;
     width: 100%;
 }
