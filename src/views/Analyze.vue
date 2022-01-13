@@ -38,36 +38,24 @@
                 ">
                 Status Check
             </p>
-    <br>
+        <br>
         </div>
         <div id="id11">
-    <br><br>
+        <br><br>
             <button @click="goBack()" style="
                 margin-left:-90%;
                 font-size: 30px;
                 border-radius: 10px;
                 background-color: white;
                 color: #1193fd;
+                cursor: pointer;
               ">
               Back
             </button>
-     <br><br>
-            <!--<h2 id="id2" style="margin-left:-5%;">
-                    File name:
-                </h2>
-            <input style="margin-right:3%; margin-left:-35%; width:20%; height:4%" v-model="message" />
-            <button style="
-                font-size: 30px;
-                border-radius: 25px;
-                background-color: white;
-                color: #1193fd;
-                width:12%;
-                height:6%;
-              ">
-              Browse
-            </button> --> 
-                
-            <input type = "file" @change="handleFileUpload( $event )"><br>
+            <br><br>   
+            <input type="file" style="
+                margin-top: 10%;
+            " @change="handleFileUpload( $event )"><br>
             <button style="
                 font-size: 30px;
                 border-radius: 25px;
@@ -75,24 +63,12 @@
                 color: white;
                 width:20%;
                 height:10%;
-                margin-left:-50%;
+                margin-top: 10%;
+                cursor: pointer;
               " v-on:click="submitFile()">
               Analyze
             </button>
             <br><br><br>
-            <!-- <router-link to="/result">
-                <button style="
-                font-size: 30px;
-                border-radius: 25px;
-                background-color: #1193fd;
-                color: white;
-                width:20%;
-                height:10%;
-                margin-left:-50%;
-              ">
-              Analyze
-            </button>
-            </router-link> -->
         </div>
     </div>
 </template>
@@ -155,9 +131,7 @@ export default {
 <style scoped>
 #id1 {
     background-color: #1193fd;
-    /* margin:0;
-    padding: 0; */
-    /* position: absolute; */
+    height: 143px;
 }
 
 #id2 {
@@ -167,10 +141,7 @@ export default {
 }
 
 #id3 {
-    /* background-image: url("../assets/gigi.png"); */
-    /* overflow: visible; */
     margin: 0;
-    /* position: absolute; */
 }
 
 #login {
@@ -178,16 +149,18 @@ export default {
 }
 
 #id11 {
-    background-image: url("../assets/gigi.png");
+    background: url("../assets/gigi.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+
     overflow: auto;
     border-top: 0;
-    height: 100%;
-    width: 100%;
+    max-width: 100%;
+    height:790px;
 }
 
 .home {
-    position: absolute;
-    overflow: auto;
     border-top: 0;
     height: 100%;
     width: 100%;
