@@ -56,16 +56,16 @@
     <div id="id2">
       <div id="id20"> 
         <p>Result</p>
-        <p v-if="this.result>50">
+        <p v-if="this.result>30">
           Unsafe  
         </p>
-        <p v-if="this.result<=50">
+        <p v-if="this.result<=30">
           Safe  
         </p>
       </div>
       <div id="id20">
-        <span v-if="this.result<=50" id="id17">&#10003;</span> 
-        <span v-if="this.result>50" id="id18">&#10005;</span> 
+        <span v-if="this.result<=30" id="id17">&#10003;</span> 
+        <span v-if="this.result>30" id="id18">&#10005;</span> 
       </div>
       <div id="id20">
         <p>Score</p>
