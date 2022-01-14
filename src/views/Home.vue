@@ -96,12 +96,18 @@
         </div>
         <div id="id11">
             <h2 id="id2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, vehicula in dolor quis, feugiat malesuada augue. In in cursus tellus, vitae tristique erat. Suspendisse convallis, risus sed tempor placerat, arcu nibh lacinia neque, eu consequat
-                odio velit quis nisi. Curabitur convallis egestas semper. Praesent et erat non tellus congue tempor a et elit. Donec vitae nulla sit amet orci maximus posuere. Nullam sit amet mauris sed dolor lobortis mattis. Interdum et malesuada fames ac
-                ante ipsum primis in faucibus. Suspendisse metus diam, sodales vitae sapien sed, malesuada sagittis mi. Phasellus placerat massa dictum dolor lacinia laoreet. In maximus lacinia neque, lobortis tempus est varius quis. Curabitur tincidunt elementum
-                lacus, non semper orci. Sed vulputate dui ut mattis gravida. Vestibulum ac massa ac felis blandit volutpat non non tellus. Praesent vehicula risus quis est vulputate vehicula. Cras blandit in diam et cursus. Morbi sed sapien semper, sagittis
-                tortor eu, euismod lacus. Nam fringilla at ante id condimentum. Fusce luctus magna elit, ac malesuada dolor placerat a. Nullam non est ornare, malesuada enim nec, posuere quam. Donec ac tortor elementum, volutpat nibh vel, luctus quam. Etiam
-                lacinia scelerisque tellus ac aliquam.
+                Buildings and other built structures are moving all the time,
+                but usually these movements are so small as to be unnoticeable.
+                Movement can be caused by defects, movement of the ground,
+                foundation failure and so on.
+                If a structure is unable to accommodate this movement, 
+                cracking is likely to occur. The appearance of distortions and 
+                cracks can be visually unattractive and disconcerting for occupants, 
+                and if left untreated they can affect the integrity, 
+                safety and stability of the structure.
+                Effective treatment requires first that the causes of cracking are understood. 
+                Only then can a strategy for repair be implemented and here is the solution :
+                The Status Check application implemented with the powerful tools of Deep Learning!
             </h2>
             <router-link to="/analyze">
                 <button style="
