@@ -49,10 +49,10 @@
                                 <input v-model="regUsername" style="margin-right:1%;width:35%; height:30px;" /><br><br>
 
                                 <span style="margin-right:130px;font-size:25px; ">Password</span>
-                                <input v-model="regPassword" style="margin-right:1%;width:35%;height:30px;" /><br> <br>
+                                <input type="password" v-model="regPassword" style="margin-right:1%;width:35%;height:30px;" /><br> <br>
 
                                 <span style="font-size:25px;margin-right:40px;">Confirm password</span>
-                                <input v-model="regPasswordConfirm" style="margin-right:1%;width:35%;height:30px;" /><br><br>
+                                <input type="password" v-model="regPasswordConfirm" style="margin-right:1%;width:35%;height:30px;" /><br><br>
 
                                 <span style=" font-size:25px; margin-right:180px; ">Email</span>
                                 <input v-model="regEmail" style="margin-right:1%;width:35%;height:30px;" /><br><br>
