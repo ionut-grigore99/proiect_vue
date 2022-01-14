@@ -53,7 +53,10 @@
               Back
             </button>
             <br><br>   
-            <input type="file" style="
+              <h2 style="color:white">
+                    Please insert a picture containing a constructed surface!
+              </h2>
+            <input type="file" accept=".jpg" style="
                 margin-top: 10%;
             " @change="handleFileUpload( $event )"><br>
             <button style="
