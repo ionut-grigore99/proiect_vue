@@ -2,7 +2,7 @@
   <div id="nav">
   </div>
   <router-view />
-</template>
+</template>fvfdfddf
 
 <style>
 #app {
